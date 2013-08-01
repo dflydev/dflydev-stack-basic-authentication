@@ -16,7 +16,7 @@ class SilexApplicationTest extends TestCase
     /** @test */
     public function shouldNotChallengeForUnprotectedResourceNoHeader()
     {
-        $app = $this->basicify($this->createTestApp(), ['firewalls' => [
+        $app = $this->basicify($this->createTestApp(), ['firewall' => [
             ['path' => '/', 'anonymous' => true],
         ]]);
 
@@ -29,7 +29,7 @@ class SilexApplicationTest extends TestCase
     /** @test */
     public function shouldChallengeForProtectedResourceNoHeader()
     {
-        $app = $this->basicify($this->createTestApp(), ['firewalls' => [
+        $app = $this->basicify($this->createTestApp(), ['firewall' => [
             ['path' => '/', 'anonymous' => true],
         ]]);
 

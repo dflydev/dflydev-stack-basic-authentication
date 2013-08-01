@@ -24,6 +24,10 @@ class BasicAuthentication implements HttpKernelInterface
 
     public function handle(Request $request, $type = HttpKernelInterface::MASTER_REQUEST, $catch = true)
     {
+        // The challenge callback is called if a 401 response is detected that
+        // has a "WWW-Authenticate: Stack" header. This is per the Stack
+        // Authentication and Authorization proposals. It is passed the existing
+        // response object.
         $challenge = function (Response $response) {
             $parts = ['Basic'];
             if (isset($this->container['realm'])) {
@@ -35,38 +39,55 @@ class BasicAuthentication implements HttpKernelInterface
             return $response;
         };
 
-        $firewalls = isset($this->container['firewalls'])
-            ? $this->container['firewalls']
-            : [];
+        // The authenticate callback is called if the request has no Stack
+        // authentication token but there is an authorization header. It is
+        // passed an app we should delegate to (assuming we do not return
+        // beforehand) and a boolean value indicating whether or not anonymous
+        // requests should be allowed.
+        $authenticate = function ($app, $anonymous) use ($request, $type, $catch, $challenge) {
+            if (false === $username = $request->headers->get('PHP_AUTH_USER', false)) {
+                if ($anonymous) {
+                    // This is not a Basic Auth request but the firewall allows
+                    // anonymous requests so we should wrap the application
+                    // so that we might be able to challenge if authorization
+                    // fails.
+                    return (new WwwAuthenticateStackChallenge($app, $challenge))
+                        ->handle($request, $type, $catch);
+                }
 
-        list ($isResponse, $value, $firewall) = \Stack\Security\authenticate(
-            $this->app,
-            $challenge,
-            $firewalls,
-            $request,
-            $type,
-            $catch
-        );
+                // Anonymous requests are not allowed so we should challenge
+                // immediately.
+                return call_user_func($challenge, (new Response)->setStatusCode(401));
+            }
 
-        if ($isResponse) {
-            return $value;
-        }
+            $token = $this->container['authenticator']($username, $request->headers->get('PHP_AUTH_PW'));
 
-        $delegate = $value;
+            if (null === $token) {
+                if ($anonymous) {
+                    // Authentication faild but anonymous requests are allowed
+                    // so we will pass this on. If authorization fails, we have
+                    // wrapped the app in a challenge middleware that will let
+                    // us challenge for basic auth.
+                    return (new WwwAuthenticateStackChallenge($app, $challenge))
+                        ->handle($request, $type, $catch);
+                }
 
-        if (false === $username = $request->headers->get('PHP_AUTH_USER', false)) {
-            return call_user_func($delegate);
-        }
+                // We should challenge immediately if anonymous requests are not
+                // allowed.
+                return call_user_func($challenge, (new Response)->setStatusCode(401));
+            }
 
-        $token = $this->container['authenticator']($username, $request->headers->get('PHP_AUTH_PW'));
+            $request->attributes->set('stack.authn.token', $token);
 
-        if (null === $token) {
-            return \Stack\Security\delegate_missing_authentication($firewall, $delegate, $challenge);
-        }
+            return $app->handle($request, $type, $catch);
+        };
 
-        $request->attributes->set('stack.authn.token', $token);
-
-        return call_user_func($delegate);
+        return (new Firewall($this->app, [
+                'challenge' => $challenge,
+                'authenticate' => $authenticate,
+                'firewall' => $this->container['firewall'],
+            ]))
+            ->handle($request, $type, $catch);
     }
 
     private function setupContainer(array $options = array())
@@ -77,7 +98,9 @@ class BasicAuthentication implements HttpKernelInterface
             );
         }
 
-        $c = new Pimple;
+        $c = new Pimple([
+            'firewall' => [],
+        ]);
 
         foreach ($options as $name => $value) {
             if (in_array($name, ['authenticator'])) {

@@ -3,8 +3,137 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "35bb228f32a094b1d42aee8b5c1dda44",
+    "hash": "c7218155a5fe35c0e64ec528e5a4d032",
     "packages": [
+        {
+            "name": "dflydev/stack-authentication",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-stack-authentication.git",
+                "reference": "f54c4cce23c4610795910d4d7f989b8493a1f079"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dflydev/dflydev-stack-authentication/zipball/f54c4cce23c4610795910d4d7f989b8493a1f079",
+                "reference": "f54c4cce23c4610795910d4d7f989b8493a1f079",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.21",
+                "silex/silex": "1.1.*@dev",
+                "stack/builder": "~1.0@dev",
+                "stack/callable-http-kernel": "~1.0@dev",
+                "stack/inline": "~1.0@dev",
+                "symfony/browser-kit": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Dflydev\\Stack": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dragonfly Development Inc.",
+                    "email": "info@dflydev.com",
+                    "homepage": "http://dflydev.com"
+                },
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com",
+                    "homepage": "http://beausimensen.com"
+                }
+            ],
+            "description": "Middlewares to support Stack-2 Authentication conventions",
+            "keywords": [
+                "stack",
+                "stack-2"
+            ],
+            "support": {
+                "source": "https://github.com/dflydev/dflydev-stack-authentication/tree/master",
+                "issues": "https://github.com/dflydev/dflydev-stack-authentication/issues"
+            },
+            "time": "2013-08-01 18:08:37"
+        },
+        {
+            "name": "dflydev/stack-firewall",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-stack-firewall.git",
+                "reference": "bddbd8868a293c3af12b096c093e492498f315d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dflydev/dflydev-stack-firewall/zipball/bddbd8868a293c3af12b096c093e492498f315d3",
+                "reference": "bddbd8868a293c3af12b096c093e492498f315d3",
+                "shasum": ""
+            },
+            "require": {
+                "dflydev/stack-authentication": "1.0.*@dev",
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.21",
+                "silex/silex": "1.1.*@dev",
+                "stack/builder": "~1.0@dev",
+                "stack/callable-http-kernel": "~1.0@dev",
+                "stack/inline": "~1.0@dev",
+                "symfony/browser-kit": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Dflydev\\Stack": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dragonfly Development Inc.",
+                    "email": "info@dflydev.com",
+                    "homepage": "http://dflydev.com"
+                },
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com",
+                    "homepage": "http://beausimensen.com"
+                }
+            ],
+            "description": "Firewall Stack middleware",
+            "keywords": [
+                "stack",
+                "stack-2"
+            ],
+            "support": {
+                "source": "https://github.com/dflydev/dflydev-stack-firewall/tree/master",
+                "issues": "https://github.com/dflydev/dflydev-stack-firewall/issues"
+            },
+            "time": "2013-08-01 18:47:07"
+        },
         {
             "name": "psr/log",
             "version": "1.0.0",
@@ -42,42 +171,6 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
-        },
-        {
-            "name": "stack/security",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/simensen/stack-security.git",
-                "reference": "c86ff2898106a71bc8dbed4d9f4428d7e679cf9d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/simensen/stack-security/zipball/c86ff2898106a71bc8dbed4d9f4428d7e679cf9d",
-                "reference": "c86ff2898106a71bc8dbed4d9f4428d7e679cf9d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "symfony/http-foundation": "~2.1",
-                "symfony/http-kernel": "~2.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "support": {
-                "source": "https://github.com/simensen/stack-security/tree/master",
-                "issues": "https://github.com/simensen/stack-security/issues"
-            },
-            "time": "2013-07-30 22:52:21"
         },
         {
             "name": "symfony/debug",
@@ -1172,7 +1265,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "stack/security": 20,
+        "dflydev/stack-authentication": 20,
+        "dflydev/stack-firewall": 20,
         "silex/silex": 20,
         "stack/builder": 20,
         "stack/callable-http-kernel": 20,
