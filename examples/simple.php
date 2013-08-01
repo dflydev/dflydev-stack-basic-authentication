@@ -28,7 +28,7 @@ $app->get('/login', function (Request $request) use ($app) {
 
 $app = (new Stack\Builder())
     ->push('Dflydev\Stack\BasicAuthentication', [
-        'firewalls' => [
+        'firewall' => [
             ['path' => '/', 'anonymous' => true],
             ['path' => '/login'],
         ],
