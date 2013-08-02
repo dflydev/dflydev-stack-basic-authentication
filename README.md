@@ -14,7 +14,7 @@ Through [Composer][3] as [dflydev/stack-basic-authentication][4].
 Usage
 -----
 
-The BasuciAuthentication middleware accepts the following options:
+The BasicAuthentication middleware accepts the following options:
 
  * **authenticator**: *(required)* A callback used to ensure that the specified
    credentials are correct.
