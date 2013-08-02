@@ -36,7 +36,8 @@ $app = (new Stack\Builder())
             if ('admin' === $username && 'default' === $password) {
                 return 'admin-user-token';
             }
-        }
+        },
+        'realm' => 'here there be dragons',
     ])
     ->resolve($app);
 
