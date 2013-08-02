@@ -1,7 +1,7 @@
 {
     "name": "dflydev/stack-basic-authentication",
-    "description": "Basic Authentication Stack middleware",
-    "keywords": ["stack", "stack-2"],
+    "description": "HTTP Basic Authentication Stack middleware",
+    "keywords": ["stack", "stack-2", "authentication"],
     "license": "MIT",
     "authors": [
         {
