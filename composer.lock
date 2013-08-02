@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c7218155a5fe35c0e64ec528e5a4d032",
+    "hash": "9f592d919865666fe9fcf01ffa7e792b",
     "packages": [
         {
             "name": "dflydev/stack-authentication",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dflydev/dflydev-stack-authentication.git",
-                "reference": "f54c4cce23c4610795910d4d7f989b8493a1f079"
+                "reference": "d50425d672755b35d3b94ff546bd2b5510425554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-stack-authentication/zipball/f54c4cce23c4610795910d4d7f989b8493a1f079",
-                "reference": "f54c4cce23c4610795910d4d7f989b8493a1f079",
+                "url": "https://api.github.com/repos/dflydev/dflydev-stack-authentication/zipball/d50425d672755b35d3b94ff546bd2b5510425554",
+                "reference": "d50425d672755b35d3b94ff546bd2b5510425554",
                 "shasum": ""
             },
             "require": {
@@ -43,6 +43,7 @@
                     "Dflydev\\Stack": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -58,16 +59,12 @@
                     "homepage": "http://beausimensen.com"
                 }
             ],
-            "description": "Middlewares to support Stack-2 Authentication conventions",
+            "description": "STACK-2 Authentication Middlewares",
             "keywords": [
                 "stack",
                 "stack-2"
             ],
-            "support": {
-                "source": "https://github.com/dflydev/dflydev-stack-authentication/tree/master",
-                "issues": "https://github.com/dflydev/dflydev-stack-authentication/issues"
-            },
-            "time": "2013-08-01 18:08:37"
+            "time": "2013-08-02 03:27:21"
         },
         {
             "name": "dflydev/stack-firewall",
@@ -75,12 +72,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dflydev/dflydev-stack-firewall.git",
-                "reference": "bddbd8868a293c3af12b096c093e492498f315d3"
+                "reference": "f9dcdc7a63fc2ac3e456f499e2c156d1b0dbbf9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-stack-firewall/zipball/bddbd8868a293c3af12b096c093e492498f315d3",
-                "reference": "bddbd8868a293c3af12b096c093e492498f315d3",
+                "url": "https://api.github.com/repos/dflydev/dflydev-stack-firewall/zipball/f9dcdc7a63fc2ac3e456f499e2c156d1b0dbbf9d",
+                "reference": "f9dcdc7a63fc2ac3e456f499e2c156d1b0dbbf9d",
                 "shasum": ""
             },
             "require": {
@@ -108,6 +105,7 @@
                     "Dflydev\\Stack": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -128,11 +126,7 @@
                 "stack",
                 "stack-2"
             ],
-            "support": {
-                "source": "https://github.com/dflydev/dflydev-stack-firewall/tree/master",
-                "issues": "https://github.com/dflydev/dflydev-stack-firewall/issues"
-            },
-            "time": "2013-08-01 18:47:07"
+            "time": "2013-08-02 02:37:55"
         },
         {
             "name": "psr/log",

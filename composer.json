@@ -20,16 +20,6 @@
             "Dflydev\\Stack": "src"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/dflydev/dflydev-stack-authentication"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/dflydev/dflydev-stack-firewall"
-        }
-    ],
     "require": {
         "php": ">=5.4.0",
         "dflydev/stack-authentication": "1.0.*@dev",
