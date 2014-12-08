@@ -25,7 +25,8 @@
         "dflydev/stack-authentication": "1.0.*@dev",
         "dflydev/stack-firewall": "1.0.*@dev",
         "symfony/http-foundation": "~2.1",
-        "symfony/http-kernel": "~2.1"
+        "symfony/http-kernel": "~2.1",
+        "pimple/pimple": " 1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.21",
