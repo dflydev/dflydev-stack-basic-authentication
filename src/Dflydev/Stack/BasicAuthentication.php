@@ -2,10 +2,6 @@
 
 namespace Dflydev\Stack;
 
-use Dflydev\Hawk\Crypto\Crypto;
-use Dflydev\Hawk\Header\HeaderFactory;
-use Dflydev\Hawk\Server\ServerBuilder;
-use Dflydev\Hawk\Server\UnauthorizedException;
 use Pimple;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
